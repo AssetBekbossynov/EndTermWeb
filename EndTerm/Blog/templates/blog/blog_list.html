@@ -1,0 +1,27 @@
+{% extends "../base.html" %}
+
+{% block content %}
+
+    <div class="well">
+        <h1>
+            {% if blogs|length > 1 %}
+                {{blogs|length}} blogs
+            {% elif blogs|length == 1 %}
+                {{blogs|length}} blog
+            {% else %}
+                blog list empty
+            {% endif %}
+        </h1>
+        
+        <a href="/blogs/add">
+            <button class="btn">Add</button>
+        </a>
+        {% for blog in blogs %}
+            <div class="panel panel-default">
+                <h2>{{blog.title}}</h2>
+                <p>{{blog.text}}</p>
+            </div>
+        {% endfor %}
+    
+    </div>
+{% endblock content %}
